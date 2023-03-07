@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-wolf-attack-1773.mp3-27f04af0ade2f6afb7940ef11f569e20.mp3str"
+
+[deps]
+
+source_file="res://sounds/mixkit-wolf-attack-1773.mp3"
+dest_files=[ "res://.import/mixkit-wolf-attack-1773.mp3-27f04af0ade2f6afb7940ef11f569e20.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

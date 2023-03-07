@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/freebark.mp3-b316d3ab564c1ff33a4c1a85842ccd49.mp3str"
+
+[deps]
+
+source_file="res://sounds/freebark.mp3"
+dest_files=[ "res://.import/freebark.mp3-b316d3ab564c1ff33a4c1a85842ccd49.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

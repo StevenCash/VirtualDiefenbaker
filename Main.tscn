@@ -1,0 +1,327 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://meshes/Husky.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Joystick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://bricks.tres" type="Material" id=4]
+[ext_resource path="res://SwipeControl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/mixkit-wolf-howling-1775.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/freebark.mp3" type="AudioStream" id=7]
+[ext_resource path="res://meshes/name.png" type="Texture" id=8]
+[ext_resource path="res://meshes/422-4223386_flag-of-canada-maple-leaf-canada-day-canadian.png" type="Texture" id=9]
+[ext_resource path="res://meshes/diefhouse.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://meshes/grass1-normal1-ogl.png" type="Texture" id=11]
+[ext_resource path="res://meshes/grass1-albedo3.png" type="Texture" id=12]
+[ext_resource path="res://meshes/grass1-rough.png" type="Texture" id=13]
+[ext_resource path="res://meshes/grass1-height.png" type="Texture" id=14]
+[ext_resource path="res://meshes/grass1-ao.png" type="Texture" id=15]
+[ext_resource path="res://ball.gd" type="Script" id=16]
+[ext_resource path="res://sounds/mixkit-dog-sad-whimper-467.mp3" type="AudioStream" id=17]
+[ext_resource path="res://sounds/eating.mp3" type="AudioStream" id=18]
+[ext_resource path="res://sounds/mixkit-wolf-attack-1773.mp3" type="AudioStream" id=19]
+[ext_resource path="res://sounds/Snoring-A4-www.fesliyanstudios.com.mp3" type="AudioStream" id=20]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.7122, 1, 2.50333 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.235294, 0.815686, 0.0941176, 1 )
+albedo_texture = ExtResource( 12 )
+roughness_texture = ExtResource( 13 )
+normal_enabled = true
+normal_scale = 12.45
+normal_texture = ExtResource( 11 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 15 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = false
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = ExtResource( 14 )
+uv1_scale = Vector3( 20, 20, 20 )
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 7 )
+size = Vector3( 50, 2, 50 )
+
+[sub_resource type="CapsuleShape" id=3]
+height = 1.3052
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 1, 1.13467 )
+
+[sub_resource type="SpatialMaterial" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.929412, 0.105882, 0.105882, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+
+[sub_resource type="SpatialMaterial" id=15]
+
+[sub_resource type="QuadMesh" id=16]
+
+[sub_resource type="SpatialMaterial" id=17]
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="QuadMesh" id=18]
+
+[sub_resource type="SpatialMaterial" id=19]
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 0.241875, 1, 2.30986 )
+
+[sub_resource type="PhysicsMaterial" id=26]
+bounce = 0.4
+
+[sub_resource type="SphereMesh" id=21]
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 0.972549, 0.980392, 0.0392157, 1 )
+
+[sub_resource type="SphereShape" id=25]
+radius = 0.808727
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Floor" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 10, 0, 0, 0, 0.99992, 0.125881, 0, -0.0126533, 9.94764, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 0.733315, 0.679889, 0, -0.679889, 0.733315, 0.566086, 9.94961, 24.6967 )
+current = true
+fov = 75.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchor_top = 0.713
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer2"]
+margin_right = 1600.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.180392, 0.0823529, 0.372549, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchor_top = 0.708
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 6.35999
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer"]
+margin_right = 532.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.180392, 0.0823529, 0.372549, 1 )
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/ColorRect"]
+margin_left = 288.0
+margin_top = 102.44
+margin_right = 819.0
+margin_bottom = 116.44
+rect_scale = Vector2( 2.52, 3.08 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "JOYSTICK"
+valign = 2
+
+[node name="SwipeControl" parent="CanvasLayer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 536.0
+margin_right = 1600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 2 )]
+position = Vector2( 127, 770 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="Husky" parent="KinematicBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451408, 1.40393, -0.323805 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1.33228, 0, 0, 0, 1.6029, 0, 0, 0, 1.7893, 0.448653, 2.76217, 0 )
+shape = SubResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.519281, 2.0688, 2.59086 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 0.0741917, 0, 0, 0, 1, 0, 0, 0, 1, -24.0889, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.29852, 0, 0, 0, 6.98076, 0, 0, 0, 25.01, -5.52264, 1.90065, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 24.6765, 0, 0, 0, 8.7329, 0, 0, 0, 24.3795, -26.1031, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( -0.0741917, 0, -8.74228e-08, 0, 1, 0, 6.48605e-09, 0, -1, 23.149, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+transform = Transform( 2.29852, 0, 0, 0, 6.98076, 0, 0, 0, 25.01, -5.52264, 1.90065, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 24.4141, 0, 0.000373368, 0, 8.7329, 0, 1.47038e-07, 0, 24.3795, -26.1031, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( -3.24302e-09, 0, 1, 0, 1, 0, -0.0741917, 0, -4.37114e-08, -0.879583, 0, -24.2937 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
+transform = Transform( 2.29852, 0, 0, 0, 6.98076, 0, 0, 0, 25.01, -5.52264, 1.90065, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+transform = Transform( 2.53662, 0.00527176, -1.39419, -1.00343e-05, 8.73288, -0.0489926, 0.000798471, 0.0175513, 24.3792, -14.294, 0, -1.19209e-07 )
+shape = SubResource( 5 )
+
+[node name="StaticBody4" type="StaticBody" parent="."]
+transform = Transform( -3.24302e-09, 0, 1, 0, 1, 0, -0.0741917, 0, -4.37114e-08, -0.879583, 0, 23.824 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody4"]
+transform = Transform( 2.29852, 0, 0, 0, 6.98076, 0, 0, 0, 25.01, -5.52264, 1.90065, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
+transform = Transform( 1.74423, 0, -1.81899e-12, 0, 8.7329, 0, 4.44089e-16, 0, 24.3795, 0.155029, 0, 5.96046e-08 )
+shape = SubResource( 5 )
+
+[node name="Howlsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Barksound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 2.622
+
+[node name="StaticBody5" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85159, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody5"]
+transform = Transform( 3.30892, 0, 1.24407, 0, 2.42579, 0, 0.387991, 0, 2.46288, -17.8919, 3.12877, -0.0630903 )
+mesh = ExtResource( 10 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 8 )
+material/1 = SubResource( 9 )
+material/2 = SubResource( 10 )
+material/3 = SubResource( 11 )
+material/4 = SubResource( 12 )
+material/5 = SubResource( 13 )
+material/6 = SubResource( 14 )
+material/7 = SubResource( 15 )
+
+[node name="decal1" type="Spatial" parent="StaticBody5/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5216, -3.9103, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody5/MeshInstance/decal1"]
+transform = Transform( 0.512548, 0, 0, 0, 0.523253, 0, 0, 0, 0.862153, -16.5727, 5.30669, 1.83211 )
+mesh = SubResource( 16 )
+material/0 = SubResource( 17 )
+
+[node name="Spatial" type="Spatial" parent="StaticBody5/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5216, -3.9103, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody5/MeshInstance/Spatial"]
+transform = Transform( 1.14197, 0, -8.9407e-08, 0, 0.465002, 0, -1.49012e-08, 0, 1, -16.5607, 4.63768, 1.69098 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
+transform = Transform( 0.931061, 0, 0.525863, 0, 2.42579, 0, 0.0308062, 0, 1.08083, -21.4647, 2.92198, -0.21488 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody5"]
+transform = Transform( 0.933033, 0, 0.597998, 0, 2.42579, 0, 0.0137229, 0, 1.45849, -14.0516, 2.92198, 0.48004 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody5"]
+transform = Transform( 0.663938, 0, 1.66465, 0, 2.42579, 0, -0.799163, 0, 0.0646345, -20.0675, 2.92198, -3.69486 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody5"]
+transform = Transform( 0.0762121, 0, 0.245841, 0, 2.42579, 0, -0.515938, 0, -0.054853, -18.8338, 2.92198, 2.98158 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody5"]
+transform = Transform( 0.078689, 0, 0.253831, 0, 2.42579, 0, -1.00305, 0, -0.106641, -13.5569, 1.71046, 3.32808 )
+shape = SubResource( 20 )
+
+[node name="ball" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67181, 2.86837, 0 )
+mass = 0.5
+physics_material_override = SubResource( 26 )
+script = ExtResource( 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ball"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+mesh = SubResource( 21 )
+material/0 = SubResource( 24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ball"]
+shape = SubResource( 25 )
+
+[node name="whimpersound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = 5.244
+
+[node name="eatsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="snoresound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="attacksound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[connection signal="sleepend" from="." to="CanvasLayer/HBoxContainer/SwipeControl" method="_on_Main_sleepend"]
+[connection signal="sleepstart" from="." to="CanvasLayer/HBoxContainer/SwipeControl" method="_on_Main_sleepstart"]
+[connection signal="attack" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_attack"]
+[connection signal="bark" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_bark"]
+[connection signal="donut" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_donut"]
+[connection signal="exit" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_exit"]
+[connection signal="howl" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_howl"]
+[connection signal="sleep" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_sleep"]
+[connection signal="tamo" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_tamo"]
+[connection signal="wake" from="CanvasLayer/HBoxContainer/SwipeControl" to="." method="_on_SwipeControl_wake"]

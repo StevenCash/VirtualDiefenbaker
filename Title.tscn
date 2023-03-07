@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Diefenbaker_Portrait.webp" type="Texture" id=1]
+[ext_resource path="res://button.png" type="Texture" id=2]
+[ext_resource path="res://fonts/buttonfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Title.gd" type="Script" id=4]
+
+[node name="Title" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.0823529, 0.372549, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_right = 1600.0
+margin_bottom = 72.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 3 )
+text = "Virtual Diefenbaker"
+align = 1
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_top = 76.0
+margin_right = 1600.0
+margin_bottom = 790.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_top = 794.0
+margin_right = 1600.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+custom_constants/separation = 100
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 382.0
+margin_right = 594.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 3 )
+text = "Play"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Button2" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 694.0
+margin_right = 906.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 3 )
+text = "Help"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Button3" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 1006.0
+margin_right = 1218.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 3 )
+text = "Exit"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Button3" to="." method="_on_Button3_pressed"]

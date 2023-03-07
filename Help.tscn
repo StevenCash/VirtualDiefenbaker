@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://button.png" type="Texture" id=1]
+[ext_resource path="res://fonts/buttonfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Help.gd" type="Script" id=3]
+
+[node name="Help" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.180392, 0.0823529, 0.372549, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_right = 1600.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = ExtResource( 2 )
+text = "Welcome to Virtual Diefenbaker!  To play with Dief, press the \"Play\" button on the title screen.  This will take you to Diefenbaker.  There are controls on the bottom of the screen.  Use these to interact with Dief.  There is a joystick on the lower left which will move him around the yard, and there are buttons on the lower right that trigger various actions.  You can scroll the buttons left or right for more options.  Press the exit button to close the program.  That is all there is to it, have fun!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_top = 720.0
+margin_right = 1600.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Return"
+icon = ExtResource( 1 )
+flat = true
+icon_align = 1
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
